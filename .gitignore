@@ -16,3 +16,4 @@ public/mix-manifest.json
 .idea/php.xml
 .idea/phpRuntime.xml
 .idea/vcs.xml
+/storage
