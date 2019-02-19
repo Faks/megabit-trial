@@ -14,6 +14,8 @@
  * Time: 9:19
  */
 
+use Pecee\SimpleRouter\SimpleRouter;
+
 /**
  * Init Session
  **/
@@ -23,3 +25,9 @@ session_start();
  * Autoload Registered Files
  **/
 require_once '../vendor/autoload.php';
+
+/**
+ * Load Routes
+ */
+// Start the routing
+SimpleRouter::start();

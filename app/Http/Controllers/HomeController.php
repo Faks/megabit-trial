@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\User;
+use App\Http\Request\Request;
+use function compact;
+use function var_dump;
 
 /**
+ * Class HomeController
  * Created by PhpStorm.
  * User: Faks
- * GitHub: https://github.com/Faks *
- * PHP version 7.3
+ * GitHub: https://github.com/Faks
  *
  * @category PHP
  * @package  Megabit_Trial
@@ -18,17 +21,34 @@ use App\Http\Models\User;
  * Date: 2019.02.19.
  * Time: 10:22
  */
-
-class HomeController
+class HomeController extends BaseController
 {
+    /**
+     * View Index
+     */
     public function index()
     {
     
+        echo "<pre>";
+        var_dump(Request::init()->request);
+        echo "</pre>";
+        
+        $test = 'tests';
+    
+        /**
+         * Render View
+         */
+        $this->render('pages.home', compact('test'));
     }
     
-    public function create()
+    public function store()
     {
-        User::save();
-        
+        echo "<pre>";
+        var_dump(Request::init()->request);
+        echo "</pre>";
+        /**
+         * Call Save On Model
+         */
+//        User::init()->save();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Session;
 
+use App\Http\Helpers\Helpers;
 use function session_destroy;
 
 /**
@@ -9,7 +10,6 @@ use function session_destroy;
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks *
- * PHP version 7.3
  *
  * @category PHP
  * @package  Megabit_Trial
@@ -21,6 +21,8 @@ use function session_destroy;
  */
 class Session
 {
+    use Helpers;
+    
     /**
      * Init Session
      *

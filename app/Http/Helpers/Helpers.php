@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Request;
+namespace App\Http\Helpers;
 
-use App\Http\Helpers\Helpers;
+use Jenssegers\Blade\Blade;
 
 /**
- * Class Request
+ * Trait Helpers
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks *
@@ -16,24 +16,17 @@ use App\Http\Helpers\Helpers;
  * @license  https://opensource.org/licenses/MIT MIT Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
  * Date: 2019.02.19.
- * Time: 11:29
+ * Time: 12:12
  */
-class Request
+trait Helpers
 {
-    use Helpers;
-    
     /**
-     * Building Custom Request Drive
+     * Init Chaining
      *
-     * @var
+     * @return self
      */
-    public $request;
-    
-    /**
-     * Request constructor.
-     */
-    public function __construct()
+    public static function init()
     {
-        $this->request = ($_POST ?? $_GET ?? $_REQUEST);
+        return new self();
     }
 }

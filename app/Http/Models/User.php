@@ -3,7 +3,7 @@
 namespace App\Http\Models;
 
 use App\Http\Database\Connection;
-use App\Http\Request\Request;
+use App\Http\Helpers\Helpers;
 use const MAIL_FROM;
 use const MAIL_TO;
 
@@ -12,7 +12,6 @@ use const MAIL_TO;
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks *
- * PHP version 7.3
  *
  * @category PHP
  * @package  Megabit_Trial
@@ -22,8 +21,10 @@ use const MAIL_TO;
  * Date: 2019.02.19.
  * Time: 10:23
  */
-class User extends Connection
+class User
 {
+    use Helpers;
+    
     /**
      * Set Table
      *
@@ -38,10 +39,23 @@ class User extends Connection
      */
     public function save()
     {
-        $this->mysqli->query("SELECT * $this->table WHERE name = ");
+        Connection::init()->mysqli->query("SELECT * $this->table WHERE name = ");
+        
         //Send Mail To Administrator
-        $this->notify();
+//        $this->notify();
         return $this;
+    }
+    
+    /**
+     * Model Destroy Record
+     *
+     * @return boolean
+     */
+    public function destroy()
+    {
+        Connection::init()->mysqli->query("SELECT * $this->table WHERE name = ");
+        
+        return 1;
     }
     
     /**

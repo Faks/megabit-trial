@@ -2,16 +2,29 @@
     "name": "megabit/trial",
     "authors": [
         {
-            "name": "Faks",
-            "email": "sia_dev@inbox.lv"
+            "name": "Oskars Germovs",
+            "email": "oskars_germovs@inbox.lv"
         }
     ],
     "require": {
-        "ext-mysqli":"*"
+        "ext-mysqli":"*",
+        "jenssegers/blade": "^1.1",
+        "pecee/simple-router": "4.2.0.6"
     },
     "autoload": {
+      "classmap": [
+        "app/Http/Controllers",
+        "app/Http/Database",
+        "app/Http/Handlers",
+        "app/Http/Helpers",
+        "app/Http/Middlewares",
+        "app/Http/Models",
+        "app/Http/Request",
+        "app/Http/Session"
+      ],
         "files": [
-            "env.php"
+            "env.php",
+            "routes/web.php"
         ]
     }
 }

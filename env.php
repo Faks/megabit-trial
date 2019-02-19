@@ -34,7 +34,6 @@ define('DB_PASSWORD', 'cueNK1MfslPsQ0sf');
  * Database Name
  */
 define('DB_NAME', 'megabit_trial');
-
 /**
  * Set Email From
  */

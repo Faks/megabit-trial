@@ -2,18 +2,19 @@
 
 namespace App\Http\Database;
 
+use App\Http\Helpers\Helpers;
 use mysqli;
 use mysqli_sql_exception;
 use const DB_HOST;
-use const DB_USERNAME;
-use const DB_PASSWORD;
 use const DB_NAME;
+use const DB_PASSWORD;
+use const DB_USERNAME;
 
 /**
+ * Class Connection
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks *
- * PHP version 7.3
  *
  * @category PHP
  * @package  Megabit_Trial
@@ -25,7 +26,14 @@ use const DB_NAME;
  */
 class Connection
 {
-    protected $mysqli;
+    use Helpers;
+    
+    /**
+     * Init MySQLI Connection
+     *
+     * @var mysqli
+     */
+    public $mysqli;
     
     /**
      * Connection constructor.
@@ -34,8 +42,8 @@ class Connection
     {
         try {
             $this->mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-        } catch (mysqli_sql_exception $error) {
-            die($error->getMessage());
+        } catch (mysqli_sql_exception $e) {
+            die($e->getMessage());
         }
     }
 }
