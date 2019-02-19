@@ -1,0 +1,17 @@
+{
+    "name": "megabit/trial",
+    "authors": [
+        {
+            "name": "Faks",
+            "email": "sia_dev@inbox.lv"
+        }
+    ],
+    "require": {
+        "ext-mysqli":"*"
+    },
+    "autoload": {
+        "files": [
+            "env.php"
+        ]
+    }
+}
