@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\User;
 use App\Http\Request\Request;
 use function compact;
 use function dd;
-use function dump;
 
 /**
  * Class HomeController
@@ -30,7 +28,7 @@ class HomeController extends BaseController
     public function index()
     {
         $test = 'tests';
-    
+        
         /**
          * Render View
          */
@@ -39,9 +37,7 @@ class HomeController extends BaseController
     
     public function store()
     {
-        echo "<pre>";
-        var_dump(Request::init()->request);
-        echo "</pre>";
+        dd(Request::init()->request);
         /**
          * Call Save On Model
          */

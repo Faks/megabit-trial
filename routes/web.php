@@ -1,7 +1,6 @@
 <?php
 
 use app\Http\Handlers\RouteExceptionHandlers;
-use App\Http\Middlewares\CsrfVerifier;
 use Pecee\SimpleRouter\SimpleRouter as Route;
 
 /**
@@ -17,7 +16,7 @@ use Pecee\SimpleRouter\SimpleRouter as Route;
  * Time: 12:35
  */
 
-Route::csrfVerifier(new CsrfVerifier());
+//Route::csrfVerifier(new CsrfVerifier());
 Route::group(['namespace' => 'App\Http\Controllers',
     'exceptionHandler' => RouteExceptionHandlers::class], function () {
     Route::get('/', 'HomeController@index')->setName('home');

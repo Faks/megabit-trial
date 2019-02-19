@@ -26,7 +26,8 @@
       ],
         "files": [
             "env.php",
-            "routes/web.php"
+            "routes/web.php",
+            "helper.php"
         ]
     }
 }

@@ -14,4 +14,5 @@ return array(
     '667aeda72477189d0494fecd327c3641' => $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     '53fb0462fcef9638a4bad103c5e8db10' => $baseDir . '/env.php',
     '8295776bf96bef827d139afb31d3fc8a' => $baseDir . '/routes/web.php',
+    '240ec8251cdb490bebedec25232059e1' => $baseDir . '/helper.php',
 );
