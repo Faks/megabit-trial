@@ -9,11 +9,21 @@
 <![endif]-->
 
 <!-- Container -->
-<div class="container">
+<div class="container pt-10">
     @yield('content')
 </div>
 
+<footer class="pt-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h5 class="text-center text-uppercase">@include('template.footer')</h5>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
 
-@include('template.footer')
+@include('template.script')
 </html>

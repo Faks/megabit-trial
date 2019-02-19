@@ -9,11 +9,21 @@
 <![endif]-->
 
 <!-- Container -->
-<div class="container">
+<div class="container pt-10">
     <?php echo $__env->yieldContent('content'); ?>
 </div>
 
+<footer class="pt-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h5 class="text-center text-uppercase"><?php echo $__env->make('template.footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?></h5>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
 
-<?php echo $__env->make('template.footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('template.script', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </html>

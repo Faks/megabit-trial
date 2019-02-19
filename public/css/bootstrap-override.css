@@ -1,0 +1,54 @@
+@import "boostrap-media-quries.css";
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-image: url("../img/bg.png");
+    /*height: 920px; !* You must set a specified height *!*/
+    /*background-position: center; !* Center the image *!*/
+    /*background-repeat: no-repeat; !* Do not repeat the image *!*/
+    /*background-size: cover; !* Resize the background image to cover the entire container *!*/
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    font-family: 'Source Sans Pro';
+    color: #a7b3cb;
+    
+    line-height: 14px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.pt-8 {
+    padding-top: 8%;
+    padding-bottom: 4%;
+}
+
+.pt-10 {
+    padding-top: 10%;
+    padding-bottom: 4%;
+}
+
+#container {
+    margin: 0 auto;
+    height: 420px;
+    background-color: rgba(15, 26, 47, 0.9)
+}
+
+hr {
+    background-color: #49abfe;
+    width: 40px;
+    height: 2px;
+    margin-right: 85%;
+    z-index: 0;
+}
+

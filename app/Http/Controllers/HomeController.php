@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Models\User;
 use App\Http\Request\Request;
 use function compact;
-use function var_dump;
+use function dd;
+use function dump;
 
 /**
  * Class HomeController
@@ -28,11 +29,6 @@ class HomeController extends BaseController
      */
     public function index()
     {
-    
-        echo "<pre>";
-        var_dump(Request::init()->request);
-        echo "</pre>";
-        
         $test = 'tests';
     
         /**
