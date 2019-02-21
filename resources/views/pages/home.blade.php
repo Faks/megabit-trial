@@ -113,7 +113,7 @@
                                 </div>
                                 
                                 <div class="form-group row mg-t-30">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12 pr-0 pl-0">
                                         <div class="row">
                                             <div class="col-sm-8">
                                                 <div class="btn-group">
