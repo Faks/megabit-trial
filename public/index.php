@@ -14,6 +14,9 @@
  * Time: 9:19
  */
 
+ini_set('log_errors', 'On');
+ini_set('display_errors', '1');
+
 use Pecee\SimpleRouter\SimpleRouter;
 
 /**
