@@ -29,7 +29,7 @@ define('DB_USERNAME', 'megabit_trial');
 /**
  * Database Password
  */
-define('DB_PASSWORD', 'cueNK1MfslPsQ0sf');
+define('DB_PASSWORD', 'XQ9sTesX1iNFjRPW');
 /**
  * Database Name
  */

@@ -11,7 +11,8 @@
       "ext-mysqli":"*",
         "jenssegers/blade": "^1.1",
         "pecee/simple-router": "4.2.0.6",
-        "symfony/var-dumper": "*"
+        "symfony/var-dumper": "*",
+        "robmorgan/phinx": "^0.10.6"
     },
     "autoload": {
       "classmap": [
