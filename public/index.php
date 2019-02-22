@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: Faks
- * GitHub: https://github.com/Faks *
- * PHP version 7.3
+ * GitHub: https://github.com/Faks
+ * PHP version 7.x
  *
  * @category PHP
- * @package  Megabit_Trial
+ * @package  Custom_OOP_MVC
  * @author   Oskars Germovs <solumdesignum@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
@@ -14,8 +14,10 @@
  * Time: 9:19
  */
 
-ini_set('log_errors', 'On');
-ini_set('display_errors', '1');
+if (APP_DEBUG) {
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+}
 
 use Pecee\SimpleRouter\SimpleRouter;
 

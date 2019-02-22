@@ -42,3 +42,7 @@ define('MAIL_FROM', 'oskars_germovs@inbox.lv');
  *  Set Email To
  */
 define('MAIL_TO', 'oskars_germovs@inbox.lv');
+/**
+ *  Set debug state to write error logs
+ */
+define('APP_DEBUG', true);

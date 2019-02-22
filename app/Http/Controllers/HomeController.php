@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Request\Request;
+use App\Http\Models\User;
 use function compact;
-use function dd;
+use function dump;
+use function request;
 
 /**
  * Class HomeController
@@ -13,7 +14,7 @@ use function dd;
  * GitHub: https://github.com/Faks
  *
  * @category PHP
- * @package  Megabit_Trial
+ * @package  Custom_OOP_MVC
  * @author   Oskars Germovs <solumdesignum@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
@@ -24,6 +25,8 @@ class HomeController extends BaseController
 {
     /**
      * View Index
+     *
+     * @return mixed
      */
     public function index()
     {
@@ -35,12 +38,26 @@ class HomeController extends BaseController
         $this->render('pages.home', compact('test'));
     }
     
+    /**
+     * Processing Request
+     *
+     * @return string
+     */
     public function store()
     {
-        dd(Request::init()->request);
+        if (request()->has('name')) {
+            dd(request()->has('name'));
+        }
+        
         /**
          * Call Save On Model
          */
-//        User::init()->save();
+        dump(request()->all());
+        
+        $user = User::init()->get("*", 'email', '=', request()->get("email"));
+        
+        dump($user);
+
+//        return redirect('/');
     }
 }

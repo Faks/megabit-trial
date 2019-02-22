@@ -1,5 +1,5 @@
 {
-    "name": "megabit/trial",
+    "name": "custom-oop-mvc/0.1",
     "authors": [
         {
             "name": "Oskars Germovs",
@@ -15,15 +15,11 @@
         "robmorgan/phinx": "^0.10.6"
     },
     "autoload": {
+      "psr-4": {
+        "App\\Http\\": "app/Http"
+      },
       "classmap": [
-        "app/Http/Controllers",
-        "app/Http/Database",
-        "app/Http/Handlers",
-        "app/Http/Helpers",
-        "app/Http/Middlewares",
-        "app/Http/Models",
-        "app/Http/Request",
-        "app/Http/Session"
+        "app/Http/"
       ],
         "files": [
             "env.php",

@@ -2,16 +2,16 @@
 
 namespace App\Http\Request;
 
-use App\Http\Helpers\Helpers;
+use function is_null;
 
 /**
  * Class Request
  * Created by PhpStorm.
  * User: Faks
- * GitHub: https://github.com/Faks *
+ * GitHub: https://github.com/Faks
  *
  * @category PHP
- * @package  Megabit_Trial
+ * @package  Custom_OOP_MVC
  * @author   Oskars Germovs <solumdesignum@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
@@ -20,14 +20,12 @@ use App\Http\Helpers\Helpers;
  */
 class Request
 {
-    use Helpers;
-    
     /**
      * Building Custom Request Drive
      *
      * @var
      */
-    public $request;
+    protected $request;
     
     /**
      * Request constructor.
@@ -35,5 +33,34 @@ class Request
     public function __construct()
     {
         $this->request = ($_POST ?? $_GET ?? $_REQUEST);
+    }
+    
+    /**
+     * Returns selected by name
+     * @param $field_name
+     * @return mixed
+     */
+    public function get($field_name)
+    {
+        return @$this->request["$field_name"];
+    }
+    
+    /**
+     * Returns does field is in request
+     * @param $field_name
+     * @return bool
+     */
+    public function has($field_name)
+    {
+        return @(!is_null($this->request["$field_name"])) ? true : false;
+    }
+    
+    /**
+     * Returns All Request
+     * @return mixed
+     */
+    public function all()
+    {
+        return $this->request;
     }
 }

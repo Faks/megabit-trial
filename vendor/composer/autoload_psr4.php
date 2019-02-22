@@ -45,5 +45,6 @@ return array(
     'Cake\\Core\\' => array($vendorDir . '/cakephp/core'),
     'Cake\\Collection\\' => array($vendorDir . '/cakephp/collection'),
     'Cake\\Cache\\' => array($vendorDir . '/cakephp/cache'),
+    'App\\Http\\' => array($baseDir . '/app/Http'),
     '' => array($vendorDir . '/nesbot/carbon/src'),
 );

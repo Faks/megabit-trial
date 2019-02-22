@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Middlewares;
+namespace App\Http\Controllers;
 
-use Pecee\Http\Middleware\BaseCsrfVerifier;
+use function dd;
 
 /**
- * Class CsrfVerifier
+ * Class ForgotController
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks
@@ -15,13 +15,18 @@ use Pecee\Http\Middleware\BaseCsrfVerifier;
  * @author   Oskars Germovs <solumdesignum@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
- * Date: 2019.02.19.
- * Time: 14:40
+ * Date: 2019.02.21.
+ * Time: 20:50
  */
-class CsrfVerifier extends BaseCsrfVerifier
+class ForgotController extends BaseController
 {
-    /**
-     * CSRF validation will be ignored on the following urls.
-     */
-    protected $except = ['/api/*'];
+    public function index()
+    {
+        dd('test');
+    }
+    
+    public function store()
+    {
+        dd($request->request);
+    }
 }

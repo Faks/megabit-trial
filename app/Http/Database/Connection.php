@@ -2,9 +2,8 @@
 
 namespace App\Http\Database;
 
-use App\Http\Helpers\Helpers;
+use Exception;
 use mysqli;
-use mysqli_sql_exception;
 use const DB_HOST;
 use const DB_NAME;
 use const DB_PASSWORD;
@@ -14,10 +13,10 @@ use const DB_USERNAME;
  * Class Connection
  * Created by PhpStorm.
  * User: Faks
- * GitHub: https://github.com/Faks *
+ * GitHub: https://github.com/Faks
  *
  * @category PHP
- * @package  Megabit_Trial
+ * @package  Custom_OOP_MVC
  * @author   Oskars Germovs <solumdesignum@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
@@ -26,24 +25,22 @@ use const DB_USERNAME;
  */
 class Connection
 {
-    use Helpers;
-    
     /**
-     * Init MySQLI Connection
+     * Init MySQL Connection
      *
      * @var mysqli
      */
-    public $mysqli;
+    protected $connection;
     
     /**
      * Connection constructor.
      */
     public function __construct()
     {
-        try {
-            $this->mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-        } catch (mysqli_sql_exception $e) {
-            die($e->getMessage());
+        $this->connection = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+        
+        if (mysqli_connect_errno() > 0) {
+            throw new Exception("Database Can't Connect!");
         }
     }
 }

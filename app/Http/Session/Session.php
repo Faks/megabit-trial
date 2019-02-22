@@ -2,17 +2,16 @@
 
 namespace App\Http\Session;
 
-use App\Http\Helpers\Helpers;
 use function session_destroy;
 
 /**
  * Class Session
  * Created by PhpStorm.
  * User: Faks
- * GitHub: https://github.com/Faks *
+ * GitHub: https://github.com/Faks
  *
  * @category PHP
- * @package  Megabit_Trial
+ * @package  Custom_OOP_MVC
  * @author   Oskars Germovs <solumdesignum@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
@@ -21,14 +20,12 @@ use function session_destroy;
  */
 class Session
 {
-    use Helpers;
-    
     /**
      * Init Session
      *
      * @var
      */
-    public $session;
+    protected $session;
     
     /**
      * Session constructor.

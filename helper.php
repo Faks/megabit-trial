@@ -1,7 +1,6 @@
 <?php
 
-use Pecee\Http\Request;
-use Pecee\Http\Response;
+use App\Http\Request;
 use Pecee\Http\Url;
 use Pecee\SimpleRouter\SimpleRouter as Router;
 
@@ -29,51 +28,6 @@ function url(?string $name = null, $parameters = null, ?array $getParams = null)
 }
 
 /**
- * @return \Pecee\Http\Response
- */
-function response(): Response
-{
-    return Router::response();
-}
-
-/**
- * @return \Pecee\Http\Request
- */
-function request(): Request
-{
-    return Router::request();
-}
-
-/**
- * Get input class
- * @param string|null $index Parameter index name
- * @param string|null $defaultValue Default return value
- * @param array ...$methods Default methods
- * @return \Pecee\Http\Input\InputHandler|\Pecee\Http\Input\IInputItem|string
- */
-function input($index = null, $defaultValue = null, ...$methods)
-{
-    if ($index !== null) {
-        return request()->getInputHandler()->getValue($index, $defaultValue, ...$methods);
-    }
-    
-    return request()->getInputHandler();
-}
-
-/**
- * @param string $url
- * @param int|null $code
- */
-function redirect(string $url, ?int $code = null): void
-{
-    if ($code !== null) {
-        response()->httpCode($code);
-    }
-    
-    response()->redirect($url);
-}
-
-/**
  * Get current csrf-token
  * @return string|null
  */
@@ -85,4 +39,33 @@ function csrf_token(): ?string
     }
     
     return null;
+}
+
+/**
+ * Redirect to specified path
+ * @param string $url
+ * @param int|null $code
+ */
+function redirect(string $url)
+{
+    header('Location: ' . $url);
+    exit();
+}
+
+/**
+ * Returns Request Instance
+ * @return Request\Request
+ */
+function request()
+{
+    return (new App\Http\Request\Request());
+}
+
+/**
+ * Return Session Instance
+ * @return \App\Http\Session\Session
+ */
+function session()
+{
+    return (new App\Http\Session\Session());
 }
