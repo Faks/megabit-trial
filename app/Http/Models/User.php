@@ -30,7 +30,7 @@ class User extends Model
      *
      * @var string
      */
-    public $table = "users";
+    protected $table = "users";
     
     /**
      * After Registration

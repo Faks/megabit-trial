@@ -38,7 +38,7 @@ class CustomAttributes extends AbstractMigration
             ->addColumn('type', 'string', ['limit' => 255])
             ->addColumn('required', 'string', ['limit' => 255])
             ->addColumn('created_user_id', 'integer')
-            ->addColumn('created', 'datetime')
+            ->addColumn('created_at', 'datetime')
             ->addColumn('updated_at', 'datetime')
             ->create();
     }

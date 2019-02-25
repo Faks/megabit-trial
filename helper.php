@@ -1,50 +1,38 @@
 <?php
 
 use App\Http\Request;
-use Pecee\Http\Url;
-use Pecee\SimpleRouter\SimpleRouter as Router;
 
 /**
- * Get url for a route by using either name/alias, class or method name.
+ * Created by PhpStorm.
+ * User: Faks
+ * GitHub: https://github.com/Faks
+ * PHP version 7.x
  *
- * The name parameter supports the following values:
- * - Route name
- * - Controller/resource name (with or without method)
- * - Controller class name
- *
- * When searching for controller/resource by name, you can use this syntax "route.name@method".
- * You can also use the same syntax when searching for a specific controller-class "MyController@home".
- * If no arguments is specified, it will return the url for the current loaded route.
- *
- * @param string|null $name
- * @param string|array|null $parameters
- * @param array|null $getParams
- * @return \Pecee\Http\Url
- * @throws \InvalidArgumentException
+ * @category PHP
+ * @package  Custom_OOP_MVC
+ * @author   Oskars Germovs <solumdesignum@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT Licence
+ * @link     http://pear.php.net/package/PHP_CodeSniffer
+ * Date: 2019.02.19.
+ * Time: 9:00
  */
-function url(?string $name = null, $parameters = null, ?array $getParams = null): Url
-{
-    return Router::getUrl($name, $parameters, $getParams);
-}
 
 /**
- * Get current csrf-token
- * @return string|null
+ * Return Server
+ *
+ * @return mixed
  */
-function csrf_token(): ?string
+function url()
 {
-    $baseVerifier = Router::router()->getCsrfVerifier();
-    if ($baseVerifier !== null) {
-        return $baseVerifier->getTokenProvider()->getToken();
-    }
-    
-    return null;
+    return $_SERVER;
 }
 
 /**
  * Redirect to specified path
- * @param string $url
- * @param int|null $code
+ *
+ * @param string $url Redirect To
+ *
+ * @return mixed
  */
 function redirect(string $url)
 {
@@ -54,6 +42,7 @@ function redirect(string $url)
 
 /**
  * Returns Request Instance
+ *
  * @return Request\Request
  */
 function request()
@@ -63,9 +52,43 @@ function request()
 
 /**
  * Return Session Instance
+ *
  * @return \App\Http\Session\Session
  */
 function session()
 {
     return (new App\Http\Session\Session());
+}
+
+/**
+ * Callback helper with single quotes
+ *
+ * @param string $str Value
+ *
+ * @return string
+ */
+function quote($str)
+{
+    return sprintf("'%s'", $str);
+}
+
+/**
+ * Date Helper Now
+ *
+ * @return false|string
+ */
+function now()
+{
+    return date('Y-m-d H:i:s');
+}
+
+/**
+ * Returns Model Count
+ *
+ * @param $model
+ * @return mixed
+ */
+function modelCount($model)
+{
+    return array_first($model);
 }

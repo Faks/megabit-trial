@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks *
- * PHP version 7.3
+ * PHP version 7.2 - 7.3
  *
  * @category PHP
  * @package  Megabit_Trial
@@ -43,6 +43,19 @@ define('MAIL_FROM', 'oskars_germovs@inbox.lv');
  */
 define('MAIL_TO', 'oskars_germovs@inbox.lv');
 /**
- *  Set debug state to write error logs
+ *  Set debug state
  */
 define('APP_DEBUG', true);
+/**
+ *  Set debug state session
+ */
+define('APP_DEBUG_SESSION', false);
+/**
+ *  Set debug state session
+ *  Clean Session
+ */
+define('APP_DEBUG_SESSION_PURGE', false);
+/**
+ *  Set debug state request
+ */
+define('APP_DEBUG_REQUEST', true);

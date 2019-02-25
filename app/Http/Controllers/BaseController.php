@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\ModelsTrait;
 use Jenssegers\Blade\Blade;
 
 /**
@@ -21,10 +22,23 @@ use Jenssegers\Blade\Blade;
 class BaseController
 {
     /**
-     * Set Blade
-     * @var Blade
+     * Load Model Instances
      */
-    public $blade;
+    use ModelsTrait;
+    
+    /**
+     * Set Blade Instance
+     *
+     * @return Blade Instance
+     */
+    protected $blade;
+    
+    /**
+     * Set Redirect Path
+     *
+     * @var $redirect_path
+     */
+    public $redirect_path = false;
     
     /**
      * BaseController constructor.
@@ -32,8 +46,8 @@ class BaseController
     public function __construct()
     {
         /**
-         * Set BladeController Views
-         * Set BladeController Cache
+         * Set Blade Views Directory
+         * Set Blade Cache Directory
          */
         $this->blade = new Blade(
             ['../resources/views'],
@@ -43,18 +57,37 @@ class BaseController
     
     /**
      * Blade Render
-     * @param $view
-     * @param array $data
-     * @param array $mergeData
+     *
+     * @param string $viewRender Render
+     * @param array $data Data
+     * @param array $mergeData Data Merged
+     *
      * @return mixed
      */
-    public function render($view, $data = [], $mergeData = [])
+    public function render($viewRender, $data = [], $mergeData = [])
     {
-        echo $this->blade->render($view, $data, $mergeData);
+        return $this->blade->render($viewRender, $data, $mergeData);
     }
     
+    /**
+     *  Blade Render Not Found View
+     *
+     * @return mixed
+     */
     public function notFound()
     {
-        $this->render('errors.404');
+        return $this->render('errors.404');
+    }
+    
+    /**
+     * Set Redirect Path
+     *
+     * @param string $path Set Redirect
+     *
+     * @return mixed
+     */
+    public function setRedirectPath($path)
+    {
+        return $this->redirect_path = $path;
     }
 }

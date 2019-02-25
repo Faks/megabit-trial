@@ -3,7 +3,7 @@
 namespace App\Http\Helpers;
 
 /**
- * Trait Helpers
+ * Traits Helpers
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks *

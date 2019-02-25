@@ -28,7 +28,7 @@ class Connection
     /**
      * Init MySQL Connection
      *
-     * @var mysqli
+     * @var mysqli $connection Connection
      */
     protected $connection;
     

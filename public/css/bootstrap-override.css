@@ -199,3 +199,18 @@ label {
 sup {
     top: -0.3em;
 }
+
+.ml-mr-30 {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.form-center {
+    margin: auto !important;
+}
+
+.card-animate-full {
+    height: 460px !important;
+    width: 100%;
+    top: -20px;
+}

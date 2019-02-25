@@ -38,7 +38,7 @@ class Users extends AbstractMigration
             ->addColumn('email', 'string', ['limit' => 255])
             ->addColumn('active', 'integer', ['default' => 0])
             ->addColumn('mail_sent', 'integer', ['default' => 0])
-            ->addColumn('created', 'datetime')
+            ->addColumn('created_at', 'datetime')
             ->addColumn('updated_at', 'datetime')
             ->create();
     }

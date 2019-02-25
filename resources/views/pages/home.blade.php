@@ -46,6 +46,9 @@
                 <div class="card card-animate card-megabit ml-n-30" id="card-animate">
                     <div class="card-body">
                         <div class="row">
+                            @include('errors.errors')
+                            @include('errors.success')
+    
                             <form class="form-right" action="/store" method="post" id="form">
                                 
                                 <div class="form-group row">

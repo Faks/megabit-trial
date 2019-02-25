@@ -21,29 +21,66 @@ use function session_destroy;
 class Session
 {
     /**
-     * Init Session
+     * Returns selected by name
      *
-     * @var
+     * @param string $name Value
+     *
+     * @return mixed
      */
-    protected $session;
-    
-    /**
-     * Session constructor.
-     */
-    public function __construct()
+    public function get($name)
     {
-        $this->session = $_SESSION;
+        if (isset($_SESSION["$name"])) {
+            $value = $_SESSION["$name"];
+        } else {
+            $value = false;
+        }
+        return $value;
     }
     
     /**
      * Session Set Value
-     * @param $name
+     *
+     * @param string $name Value
+     * @param string $value Value
+     * @param boolean $array_values Build Array
      *
      * @return mixed
      */
-    public function put($name)
+    public function put($name, $value = false, $array_values = false)
     {
-        return $this->session[$name];
+        if ($array_values) {
+            $value = [$array_values];
+        }
+        
+        return $_SESSION["$name"] = $value;
+    }
+    
+    /**
+     * Session all
+     *
+     * @return array
+     */
+    public function all()
+    {
+        return $_SESSION;
+    }
+    
+    /**
+     * Session value check exist check
+     *
+     * @param string $name Value
+     *
+     * @return bool
+     */
+    public function has($name)
+    {
+        if (isset($_SESSION["$name"])) {
+            $status = true;
+        } else {
+            $status = false;
+        }
+        
+        return $status;
     }
     
     /**
@@ -58,10 +95,13 @@ class Session
     
     /**
      * Destroy Specified Session Value
-     * @param $name
+     *
+     * @param string $name Value
+     *
+     * @return mixed
      */
     public function forget($name)
     {
-        unset($name);
+        unset($_SESSION[$name]);
     }
 }

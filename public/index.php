@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks
- * PHP version 7.x
+ * PHP version 7.2 - 7.3
  *
  * @category PHP
  * @package  Custom_OOP_MVC
@@ -14,17 +14,12 @@
  * Time: 9:19
  */
 
-if (APP_DEBUG) {
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
-}
-
-use Pecee\SimpleRouter\SimpleRouter;
-
 /**
  * Init Session
  **/
 session_start();
+
+use Pecee\SimpleRouter\SimpleRouter;
 
 /**
  * Autoload Registered Files
@@ -32,7 +27,32 @@ session_start();
 require_once '../vendor/autoload.php';
 
 /**
+ * Global Debug Mode
+ */
+if (APP_DEBUG) {
+    /**
+     * Request Debug All
+     */
+    if (APP_DEBUG_REQUEST) {
+        dump(request()->all());
+    }
+    
+    /**
+     * Session Debug All
+     */
+    if (APP_DEBUG_SESSION) {
+        dump(session()->all());
+    }
+    
+    /**
+     * Session Purge
+     */
+    if (APP_DEBUG_SESSION_PURGE) {
+        session()->flush();
+    }
+}
+
+/**
  * Load Routes
  */
-// Start the routing
 SimpleRouter::start();

@@ -37,7 +37,9 @@ class Request
     
     /**
      * Returns selected by name
-     * @param $field_name
+     *
+     * @param string $field_name Value
+     *
      * @return mixed
      */
     public function get($field_name)
@@ -47,7 +49,9 @@ class Request
     
     /**
      * Returns does field is in request
-     * @param $field_name
+     *
+     * @param string $field_name Value
+     *
      * @return bool
      */
     public function has($field_name)
@@ -57,6 +61,7 @@ class Request
     
     /**
      * Returns All Request
+     *
      * @return mixed
      */
     public function all()

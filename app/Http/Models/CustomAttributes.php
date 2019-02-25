@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Models;
 
-use function dd;
+use App\Http\Database\Model;
+use App\Http\Helpers\Helpers;
 
 /**
- * Class ForgotController
+ * Class CustomAttributes
  * Created by PhpStorm.
  * User: Faks
  * GitHub: https://github.com/Faks
@@ -15,24 +16,17 @@ use function dd;
  * @author   Oskars Germovs <solumdesignum@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
- * Date: 2019.02.21.
- * Time: 20:50
+ * Date: 2019.02.24.
+ * Time: 12:29
  */
-class ForgotController extends BaseController
+class CustomAttributes extends Model
 {
-    /**
-     *
-     */
-    public function index()
-    {
-        dd('Work in Progress');
-    }
+    use Helpers;
     
     /**
+     * Set Table
      *
+     * @var string
      */
-    public function store()
-    {
-        dd($request->request);
-    }
+    protected $table = "custom_attributes";
 }
