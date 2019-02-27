@@ -19,24 +19,20 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Required</th>
+                            <th>Assigned To</th>
+                            <th>Field Name</th>
+                            <th>Field Type</th>
                             <th>Delete</th>
-                            <th>Edit</th>
                         </tr>
                         </thead>
                         
                         <tbody>
-                        @foreach($attributes as $attribute)
+                        @foreach($attributes_assigned as $attribute_assigned)
                             <tr>
-                                <td>{{ $attribute->id }}</td>
-                                <td>{{ $attribute->name }}</td>
-                                <td>{{ $attribute->type }}</td>
-                                <td>{{ $attribute->required }}</td>
-                                <td><a href="/dashboard/attribute/destroy/{{ $attribute->id }}">Delete</a></td>
-                                <td><a href="/dashboard/attribute/edit/{{ $attribute->id }}">Edit</a></td>
+                                <td>{{ $attribute_assigned->username }}</td>
+                                <td>{{ $attribute_assigned->name }}</td>
+                                <td>{{ $attribute_assigned->type }}</td>
+                                <td><a href="/dashboard/attribute/assign/destroy/{{ $attribute_assigned->custom_attributes_assigned_id }}">Delete</a></td>
                             </tr>
                         @endforeach
                         </tbody>

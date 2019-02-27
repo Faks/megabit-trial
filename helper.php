@@ -85,7 +85,8 @@ function now()
 /**
  * Returns Model Count
  *
- * @param $model
+ * @param array $model Model Instance
+ *
  * @return mixed
  */
 function modelCount($model)

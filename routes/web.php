@@ -42,27 +42,20 @@ Route::group(['namespace' => 'App\Http\Controllers', 'exceptionHandler' => Route
     
     //Attributes Listing
     Route::get('/dashboard/attributes', 'AttributesController@index');
-    //Attribute View
-    Route::get('/dashboard/attribute/show/{id}', 'AttributesController@show');
     //Attribute Create
     Route::get('/dashboard/attribute/create', 'AttributesController@create');
     Route::post('/dashboard/attribute/store', 'AttributesController@store');
     //Attribute Edit
-    Route::get('/dashboard/attribute/edit/{id}', 'AttributesController@show');
+    Route::get('/dashboard/attribute/edit/{id}', 'AttributesController@edit');
     Route::post('/dashboard/attribute/update/{id}', 'AttributesController@update');
     //Attribute Destroy
     Route::get('/dashboard/attribute/destroy/{id}', 'AttributesController@destroy');
     
     //Attributes Assign Listing
     Route::get('/dashboard/attributes/assign', 'AttributesAssignController@index');
-    //Attribute Assign View
-    Route::get('/dashboard/attribute/assign/show/{id}', 'AttributesAssignController@show');
     //Attribute Assign Create
     Route::get('/dashboard/attribute/assign/create', 'AttributesAssignController@create');
     Route::post('/dashboard/attribute/assign/store', 'AttributesAssignController@store');
-    //Attribute Assign Edit
-    Route::get('/dashboard/attribute/assign/edit/{id}', 'AttributesAssignController@show');
-    Route::post('/dashboard/attribute/assign/update/{id}', 'AttributesAssignController@update');
     //Attribute Assign Destroy
     Route::get('/dashboard/attribute/assign/destroy/{id}', 'AttributesAssignController@destroy');
 });

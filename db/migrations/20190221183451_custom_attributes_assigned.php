@@ -37,6 +37,7 @@ class CustomAttributesAssigned extends AbstractMigration
             ->addColumn('custom_attributes_id', 'integer')
             ->addColumn('custom_attributes_users_id', 'integer')
             ->addColumn('created_user_id', 'integer')
+            ->addColumn('text', 'LONGTEXT', ['limit' => 'TEXT_LONG'])
             ->addColumn('created_at', 'datetime')
             ->addColumn('updated_at', 'datetime')
             ->create();

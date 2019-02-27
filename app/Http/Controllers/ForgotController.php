@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use function dd;
+use function redirect;
+use function request;
 
 /**
  * Class ForgotController
@@ -21,18 +22,57 @@ use function dd;
 class ForgotController extends BaseController
 {
     /**
+     * Render Index
      *
+     * @return mixed
      */
     public function index()
     {
-        dd('Work in Progress');
+        return $this->render('pages.forgot');
     }
     
     /**
+     * Processing Request
      *
+     * @return string
      */
     public function store()
     {
-        dd($request->request);
+        $user_exist_check = $this->userModel()
+            ->first('*', 'email', '=', (string)request()->get('email'));
+        
+        if ($user_exist_check) {
+            if ((string)request()->get('password') == (string)request()->get('password_confirm')) {
+                //Create New User
+                $this->userModel()->update(
+                    "password='" . password_hash(request()->get('password'), 2) . "' "
+                );
+                
+                //purge success messages
+                session()->forget('errors');
+                //set success message
+                session()->put('success', false, 'User password been changed.');
+            } else {
+                //purge success messages
+                session()->forget('success');
+                //set error message
+                session()->put(
+                    'errors',
+                    false,
+                    "Password and password confirm are not matching"
+                );
+            }
+        } else {
+            //purge success messages
+            session()->forget('success');
+            //set error message
+            session()->put(
+                'errors',
+                false,
+                "Failed to find matching member."
+            );
+        }
+        
+        return redirect('/forgot');
     }
 }

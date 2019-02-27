@@ -7,27 +7,8 @@
                 <div class="card-header">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-5">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active" aria-current="page">
-                                            <a href="/dashboard">Dashboard</a>
-                                        </li>
-                                    </ol>
-                                </nav>
-                            </div>
-                            <div class="col-md-7">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item" aria-current="page">
-                                            <a href="/dashboard/attribute/create">Create Attribute</a>
-                                        </li>
-                                        
-                                        <li class="breadcrumb-item" aria-current="page">
-                                            <a href="/logout">Logout</a>
-                                        </li>
-                                    </ol>
-                                </nav>
+                            <div class="col-md-12">
+                                @include('partials.breadcrumb')
                             </div>
                         </div>
                     </div>
