@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use function compact;
-use function dump;
 use function modelCount;
 use function redirect;
 use function request;
@@ -50,10 +49,13 @@ class DashboardController extends BaseController
     public function store()
     {
         if (session()->has('user') == true) {
-            
             //Collect Custom Fields with join
             $get_attributes_assigned = $this->customAttributesAssignedModel()->get(
-                '*', 'custom_attributes_assigned.custom_attributes_users_id', '=', request()->get('id'), false,
+                '*',
+                'custom_attributes_assigned.custom_attributes_users_id',
+                '=',
+                request()->get('id'),
+                false,
                 "
                 LEFT JOIN custom_attributes
                 ON custom_attributes.id = custom_attributes_assigned.custom_attributes_id"
@@ -68,7 +70,9 @@ class DashboardController extends BaseController
                 //Dynamically Update all custom fields
                 $this->customAttributesAssignedModel()->update(
                     "text='" . request()->get(strtolower($attribute_assigned_store->name)) . "'",
-                    'custom_attributes_id', '=', $attribute_assigned_store->id,
+                    'custom_attributes_id',
+                    '=',
+                    $attribute_assigned_store->id,
                     "custom_attributes_assigned.custom_attributes_users_id = '" . request()->get('id') . "'"
                 );
             }
@@ -84,7 +88,6 @@ class DashboardController extends BaseController
             if ($user_update) {
                 $this->redirect_path = '/dashboard';
             }
-            
         } else {
             $this->redirect_path = '/';
         }
@@ -103,11 +106,19 @@ class DashboardController extends BaseController
     {
         if (session()->has('user') == true) {
             $get_user = $this->userModel()->first(
-                '*', 'id', '=', (integer)$id, true
+                '*',
+                'id',
+                '=',
+                (integer)$id,
+                true
             );
             
             $get_attributes_assigned = $this->customAttributesAssignedModel()->get(
-                '*', 'custom_attributes_assigned.custom_attributes_users_id', '=', $get_user->id, false,
+                '*',
+                'custom_attributes_assigned.custom_attributes_users_id',
+                '=',
+                $get_user->id,
+                false,
                 "
                 LEFT JOIN custom_attributes
                 ON custom_attributes_assigned.custom_attributes_id = custom_attributes.id"
@@ -117,8 +128,12 @@ class DashboardController extends BaseController
             redirect($this->redirect_path);
         }
         
-        return $this->render('pages.edit.user', compact(
-            'id', 'get_user', 'get_attributes_assigned'
+        return $this->render(
+            'pages.edit.user',
+            compact(
+                'id',
+                'get_user',
+                'get_attributes_assigned'
             )
         );
     }

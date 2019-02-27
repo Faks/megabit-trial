@@ -26,10 +26,12 @@ class RouteExceptionHandlers extends BaseController implements IExceptionHandler
     /**
      * Handle Route Error
      *
-     * @param Request $request Routes Request
-     * @param \Exception $error Error
+     * @param Request    $request Routes Request
+     * @param \Exception $error   Error
      *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function handleError(Request $request, \Exception $error): void
     {
@@ -38,10 +40,12 @@ class RouteExceptionHandlers extends BaseController implements IExceptionHandler
          * depending on the request and type.
          */
         if ($request->getUrl()->contains('/api')) {
-            response()->json([
+            response()->json(
+                [
                 'error' => $error->getMessage(),
                 'code' => $error->getCode(),
-            ]);
+                    ]
+            );
         }
         
         /* The router will throw the NotFoundHttpException on 404 */

@@ -73,6 +73,7 @@ class ForgotController extends BaseController
             );
         }
         
+        //Redirect
         return redirect('/forgot');
     }
 }

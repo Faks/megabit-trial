@@ -84,7 +84,8 @@ class HomeController extends BaseController
                         'active',
                         'created_at',
                         'updated_at'
-                    ], [
+                    ],
+                    [
                         request()->get('name'),
                         request()->get('email'),
                         password_hash(request()->get('password'), 2),
@@ -120,7 +121,8 @@ class HomeController extends BaseController
                     //set error message
                     session()->put(
                         'errors',
-                        false, 'password or email is incorrect'
+                        false,
+                        'password or email is incorrect'
                     );
                     //set redirect path
                     $this->setRedirectPath('/dashboard');

@@ -92,7 +92,11 @@ class AttributesController extends BaseController
     public function edit($id)
     {
         $get_attribute = $this->customAttributesModel()->first(
-            '*', 'id', '=', (integer)$id, true
+            '*',
+            'id',
+            '=',
+            (integer)$id,
+            true
         );
         
         $action = "/dashboard/attribute/update/" . $id;
@@ -120,14 +124,15 @@ class AttributesController extends BaseController
             "name='" . request()->get('name') . "',
              type='" . request()->get('type') . "',
              required='" . request()->get('required') . "' ",
-            'id', '=', $id
+            'id',
+            '=',
+            $id
         );
         
         if ($attributes_update) {
             session()->forget('errors');
             session()->put('success', 'Attribute has been updated');
             $this->redirect_path = '/dashboard/attributes';
-            
         } else {
             session()->put('errors', 'Attribute failed to update');
             $this->redirect_path = request()->back();
@@ -154,7 +159,6 @@ class AttributesController extends BaseController
             session()->put('success', 'Attribute has been deleted');
             
             $this->redirect_path = '/dashboard/attributes';
-            
         } else {
             session()->put('errors', 'Attribute failed to delete');
             $this->redirect_path = request()->back();

@@ -29,7 +29,11 @@ class AttributesAssignController extends BaseController
     public function index()
     {
         $attributes_assigned = $this->customAttributesAssignedModel()->get(
-            '*, custom_attributes_assigned.id as custom_attributes_assigned_id', false, false, false, false,
+            '*, custom_attributes_assigned.id as custom_attributes_assigned_id',
+            false,
+            false,
+            false,
+            false,
             "
                 LEFT JOIN custom_attributes
                 ON custom_attributes_assigned.custom_attributes_id = custom_attributes.id
@@ -56,9 +60,12 @@ class AttributesAssignController extends BaseController
         $get_users = $this->userModel()->get('*');
         $get_custom_fields = $this->customAttributesModel()->get('*');
         
-        return $this->render('pages.edit.attributes_assigned', compact
-            (
-                'action', 'get_users', 'get_custom_fields'
+        return $this->render(
+            'pages.edit.attributes_assigned',
+            compact(
+                'action',
+                'get_users',
+                'get_custom_fields'
             )
         );
     }
@@ -93,7 +100,6 @@ class AttributesAssignController extends BaseController
             session()->forget('errors');
             session()->put('success', 'Attribute assigned to user');
             $this->redirect_path = '/dashboard/attributes/assign';
-            
         } else {
             session()->put('errors', 'Attribute assign failed to user');
             $this->redirect_path = request()->back();
@@ -112,15 +118,14 @@ class AttributesAssignController extends BaseController
      */
     public function destroy($id)
     {
-        $attribute_assigned__destroy = $this->customAttributesAssignedModel()
+        $attribute_assigned_destroy = $this->customAttributesAssignedModel()
             ->destroy('id', '=', (integer)$id);
         
-        if ($attribute_assigned__destroy) {
+        if ($attribute_assigned_destroy) {
             session()->forget('errors');
             session()->put('success', 'Attribute Assigned has been deleted');
             
             $this->redirect_path = '/dashboard/attributes/assign';
-            
         } else {
             session()->put('errors', 'Attribute Assigned failed to delete');
             $this->redirect_path = request()->back();

@@ -2,7 +2,6 @@
 
 namespace App\Http\Database;
 
-use function dd;
 use function implode;
 
 /**
@@ -135,10 +134,10 @@ class Model extends Connection
     public function save($fields_name, $fields_value)
     {
         if ($this->query(
-                "INSERT INTO  " . $this->table . "
+            "INSERT INTO  " . $this->table . "
                 (" . implode(', ', $fields_name) . ")
                 VALUES (" . implode(', ', array_map('quote', $fields_value)) . ")"
-            ) == true
+        ) == true
         ) {
             $this->last_insert_id = mysqli_insert_id($this->connection);
             
@@ -173,9 +172,9 @@ class Model extends Connection
         }
         
         if ($this->query(
-                "UPDATE  " . $this->table . " SET $column_name_and_value
+            "UPDATE  " . $this->table . " SET $column_name_and_value
             WHERE  $where_field $where_operator '$where_value' $build_and_where_query "
-            ) == true
+        ) == true
         ) {
             //return true if execute
             $status = true;
@@ -201,9 +200,9 @@ class Model extends Connection
     public function destroy($where_field = false, $where_operator = false, $where_value = false)
     {
         if ($this->query(
-                "DELETE FROM  " . $this->table . "
+            "DELETE FROM  " . $this->table . "
             WHERE  $where_field $where_operator '$where_value' "
-            ) == true
+        ) == true
         ) {
             //return true if execute
             $status = true;
