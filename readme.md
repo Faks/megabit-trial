@@ -1,3 +1,4 @@
+#PHP 7.1 is required for stable work
 # git clone https://bitbucket.org/Faks/megabit-trial.git
 # After cloning from git run composer install (CLI)to install all dependencies.
 # After alter these two database settings.
