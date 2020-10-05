@@ -17,7 +17,6 @@ use Pecee\SimpleRouter\SimpleRouter as Route;
  * Time: 12:35
  */
 
-//Route::csrfVerifier(new CsrfVerifier());
 Route::group(['namespace' => 'App\Http\Controllers', 'exceptionHandler' => RouteExceptionHandlers::class], function () {
     Route::get('/', 'HomeController@index');
     Route::post('/store', 'HomeController@store');

@@ -1,1 +1,0 @@
-All Rights Reserved Oskars Germovs 2019.

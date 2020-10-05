@@ -1,4 +1,4 @@
-#PHP 7.1 is required for stable work
+#PHP 7.2 is required for stable work
 # git clone https://bitbucket.org/Faks/megabit-trial.git
 # After cloning from git run composer install (CLI)to install all dependencies.
 # After alter these two database settings.
@@ -9,7 +9,8 @@
 # 2.migrations vendor/bin/phinx migrate
 # by changing both with new informations innitial setup will be done
 # create folder storage/cache with permissions 0777 to store blade cache files
- 
+# create folder storage/cache/sessions with permissions 0777 to store blade cache files
+
 
 #User End
 http://megabit-trial.solum-designum.com
