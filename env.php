@@ -17,7 +17,7 @@
 /**
  * Database Connection
  */
-define('DB_HOST', 'solum-designum.com');
+define('DB_HOST', 'localhost');
 /**
  *  Database Port
  */
